@@ -1,0 +1,7 @@
+Flask
+gunicorn
+requests
+Flask-Cors
+Flask-Bootstrap
+qiskit
+numpy
