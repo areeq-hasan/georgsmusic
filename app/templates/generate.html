@@ -176,8 +176,14 @@
 										}
 									}
 								</style>
-								<h1 class="page-title slide-right">Georg's Music</h1>
-								<h2 class="page-description typewriter-text anim-typewriter-desc-long">skdnfsjdnfksndfksdnfjksndjkf</h2>
+								<h1 class="page-title slide-right">Music Generator</h1>
+								<h2 class="page-description typewriter-text anim-typewriter-desc-long">input some text</h2>
+                                <form action="/api/generate" method="post">
+                                    <div class="form-group">
+                                        <textarea name="sample_text" class="form-control"" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Generate</button>
+                                </form>
 							</div>
 							<!-- End Page Info -->
 						</div>

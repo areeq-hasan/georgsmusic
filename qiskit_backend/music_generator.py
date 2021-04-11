@@ -58,7 +58,7 @@ def get_audio_waveform(string):
         word_waveform = np.zeros(waveform_size)
         for waveform in word_waveforms: 
             word_waveform = word_waveform + np.pad(waveform, (0, waveform_size - waveform.size), mode='constant')
-        audio_waveform = np.concatenate((audio_waveform, complex_waveform_to_amplitude_waveform(waveform))) # concatenate word_waveform to end of audio_waveform
+        audio_waveform = np.concatenate((audio_waveform, complex_waveform_to_amplitude_waveform(waveform)))
     return audio_waveform
 
 def generate_wav(string):

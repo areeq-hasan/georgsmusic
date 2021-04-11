@@ -1,4 +1,4 @@
-from flask import send_file
+from flask import send_file, request
 
 from app import app
 from qiskit_backend.music_generator import test_qiskit, generate_wav
@@ -7,7 +7,7 @@ from qiskit_backend.music_generator import test_qiskit, generate_wav
 def test():
     return test_qiskit()
 
-@app.route("/api/generate/<string>")
-def generate(string):
-    generate_wav(string)
+@app.route("/api/generate", methods=["POST"])
+def generate():
+    generate_wav(request.form['sample_text'])
     return send_file("/tmp/output.wav", as_attachment=True)
