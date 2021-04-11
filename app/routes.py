@@ -2,6 +2,7 @@ from app import app
 
 from flask import render_template
 
-@app.route("/test/<name>")
-def test(name):
-    return render_template("index.html", name=name)
+from app.api import test_qiskit
+
+@app.route("/")
+def index(): return "georgsmusic"

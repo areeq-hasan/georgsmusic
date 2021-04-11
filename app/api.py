@@ -1,17 +1,13 @@
+from flask import send_file
+
 from app import app
-from flask import jsonify
+from qiskit_backend.music_generator import test_qiskit, generate_wav
 
-# import numpy
-import numpy as np
+@app.route("/api/test")
+def test():
+    return test_qiskit()
 
-# importing qiskit
-from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
-from qiskit.compiler import schedule
-
-from qiskit.test.mock.backends.almaden import FakeAlmaden
-backend = FakeAlmaden()
-
-from qiskit.pulse.instructions.play import Play
-
-def test_qiskit():
-    return qiskit.__qiskit__version__
+@app.route("/api/generate/<string>")
+def generate(string):
+    generate_wav(string)
+    return send_file("/tmp/output.wav", as_attachment=True)
